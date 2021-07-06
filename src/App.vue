@@ -51,29 +51,17 @@ import AddTask from './components/AddTask'
       toggleReminder(id) {
         this.tasks = this.tasks.map((task) => 
         task.id === id ? { ...task, reminder: !task.reminder} : task)
+      },
+
+      async fetchTasks() {
+        const respose = await fetch('http://localhost:5000/tasks')
+        const data = await respose.json()
+
+        return data
       }
     },
-    created() {
-      this.tasks = [
-        {
-          id: 1,
-          text: 'Doctors appointment',
-          day: 'March 1st at 14:30',
-          reminder: true
-        },
-        {
-          id: 2,
-          text: 'Meeting at school',
-          day: 'March 3rd at 10:30',
-          reminder: true
-        },
-        {
-          id: 3,
-          text: 'Food shopping',
-          day: 'March 3rd at 15:00',
-          reminder: false
-        }
-      ]
+    async created() {
+      this.tasks = await this.fetchTasks()
     }
   };
 </script>
