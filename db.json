@@ -17,6 +17,12 @@
       "text": "Food shopping",
       "day": "July 6th at 14:00pm",
       "reminder": true
+    },
+    {
+      "text": "Birthday party",
+      "day": "July 7th at 12:00",
+      "reminder": false,
+      "id": "gdcEXFx"
     }
   ]
 }
